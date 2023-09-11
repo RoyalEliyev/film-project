@@ -1,0 +1,30 @@
+{% extends 'base.html '%}
+
+{% block title %}Films{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1>Films</h1>
+        {% for film in films %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ film.poster.url }}" class="card-img-top" alt="{{film.name}}">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'detail' film.id %}">{{ film.name}}</a></h5>
+              {% if query %}
+              {% for about in Abouts %}
+              <p class="card-text">{{ about | safe }}</p>
+              {% endfor %}
+              {% else %}
+              <p class="card-text">{{ film.about }}</p>
+              {% endif %}
+              <a href="#" class="btn btn-primary">Film</a>
+            </div>
+          </div>
+        {% empty %}
+        <div class="alert alert-primary" role="alert">
+          Sizin axtarisa uygun film tapilmadi
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

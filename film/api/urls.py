@@ -1,0 +1,31 @@
+from django.urls import path
+from film.api import views
+
+urlpatterns = [
+    # path("film-list/", views.FilmListAPIView.as_view(), name="film-list"),
+    # path("film-create/", views.FilmCreateAPIView.as_view(), name="film-create"),
+    path("film-list-create/", views.FilmListCreateAPIView.as_view(), name="film-list-create"),
+    # path("film-retrieve/<int:id>/", views.FilmRetrieveAPIView.as_view(), name="film-retrieve"),
+    # path("film-delete/<int:id>/", views.FilmDestroyAPIView.as_view(), name="film-delete"),
+    # path("film-update/<int:id>/", views.FilmUpdateAPIView.as_view(), name="film-update"),
+    path("film-retrieve-delete-update/<int:id>/", views.FilmRetrieveUpdateDestroyAPIView.as_view(), name="film-retrieve-delete-update"),
+    path("actor-list/", views.ActorListAPIView.as_view(), name="actor-list"),
+    path("acttor-create/", views.ActorCreateAPIView.as_view(), name="actor-create"),
+    path("actor-update/<int:id>/", views.ActorUpdateAPIView.as_view(), name="actor-update"),
+    path("actor-retrieve/<int:id>/", views.ActorRetrieveAPIView.as_view(), name="actor-retrieve"),
+    path("actor-delete/<int:id>/", views.ActorDestroyAPIView.as_view(), name="actor-delete"),
+    # path("comment-list-create/", views.CommentListCreateAPIView.as_view(), name="comment-list-create"),
+    path("comment-list/", views.CommentListAPIView.as_view(), name="comment-list"),
+    path("comment-create/", views.CommentCreateAPIView.as_view(), name="comment-create"),
+    path("comment-retrieve-delete-update/", views.CommentUpdateRetrieveDestroyAPIView.as_view(), name="comment-retrieve-delete-update"),
+    path("film-comment-list/<int:id>/", views.FilmCommentListAPIView.as_view(), name="film-comment-list"),
+    # path("like-list-create/", views.LikeListCreateAPIView.as_view(), name="like-list-create"),
+    path("like-list/", views.LikeListAPIView.as_view(), name="like-list"),
+    path("like-create/", views.LikeCreateAPIView.as_view(), name="like-create"),
+    path("like-retrieve-delete-update/<int:id>/", views.LikeRetrieveUpdateDestroyAPIView.as_view(), name="like-retrieve-delete-update"),
+    path("film-like-list/<int:id>/", views.FilmLikeListAPIView.as_view(), name="film-like-list"),
+    path("viewcount-list/", views.ViewCountListAPIView.as_view(), name="viewcount-list"),
+    path("viewcount-create/", views.ViewCountCreateAPIView.as_view(), name="viewcount-create"),
+    path("viewcount-retrieve-delete-update/<int:id>/", views.ViewCountRetrieveUpdateDestroyAPIView.as_view(), name = "viewcount-retrieve-delete-update"),
+    path("film-viewcount-list/<int:id>/", views.FilmViewCountListAPIView.as_view(), name="film-viewcount-list"),
+]
